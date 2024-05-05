@@ -1,6 +1,3 @@
-#ifndef CSVTOJSONCONVERTER_HPP
-#define CSVTOJSONCONVERTER_HPP
-
 #include <string>
 
 #include <iostream>
@@ -10,8 +7,8 @@
 #include <vector>
 #include <map>
 
-#include "include/csv.hpp" // CSV parsing library
-#include "include/json.hpp" // JSON library
+#include "include/csv.hpp" 
+#include "include/json.hpp" 
 
 using namespace std;
 using json = nlohmann::json;
@@ -71,12 +68,13 @@ int main(int argc, char* argv[]) {
     // Convert CSV to JSON
     json jsonArray = converter.convertToJSON();
 
+    // Determine output filename without extension
+    string filenameWithoutExtension = csvFilePath.substr(0, csvFilePath.find_last_of("."));
+    string outputPath = filenameWithoutExtension + ".json";
+
     // Save JSON to file
-    string outputPath = "output.json"; // Default output filename
     converter.saveJSONToFile(jsonArray, outputPath);
     cout << "JSON file saved successfully: " << outputPath << endl;
 
     return 0;
 }
-
-#endif // CSVTOJSONCONVERTER_HPP
