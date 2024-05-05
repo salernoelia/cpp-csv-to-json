@@ -14,5 +14,5 @@ make
 
 ```bash
 ./csv_to_json customers-100.csv
-// ouputs a customers-100.json
+# ouputs a customers-100.json
 ```
